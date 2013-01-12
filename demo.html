@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>tabmenu demo</title>
+	
+	<meta name="viewport" content="width=device-width">
+	
+	<link rel="stylesheet" href="demo.css?v=0">
+	<style>
+	.active{
+		color:red;
+	}
+	.hidden{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div>
+	    <nav class="ui-tabmenu">
+	        <ul>
+	            <li>
+	                <a href="#tab1" class="ui-tab-label">
+	                    tab 1
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#tab2" class="ui-tab-label">
+	                    tab 2
+	                </a>
+	            </li>
+	        </ul>
+	    </nav>
+	    <div id="tab1" class="ui-tab">
+	        Content of first tab
+	    </div>
+	    <div id="tab2" class="ui-tab">
+	        Content of second tab
+	    </div>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="tabmenu.js"></script>
+</body>
+</html>

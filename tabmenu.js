@@ -1,22 +1,33 @@
 (function($){
-	$(function(){
-		if ($('.ui-tab').length === 0) return;
+	jQuery.fn.tabmenu = function(options){
+		var settings = $.extend({
+			'hiddenClass': 'hidden',
+			'activeClass': 'active',
+		}, options);
 		
-		$('.ui-tab').not(':first').addClass('visuallyhidden');
-		$('.ui-tabmenu li a').first().addClass('active');
-		
-		$('.ui-tabmenu li a').click(function(event){
-			event.preventDefault();
-			
+		return this.each(function(){
 			var $this = $(this);
-			if (!$this.hasClass('active')){
-				$('.ui-tabmenu li a.active').removeClass('active');
-				$this.addClass('active');
+			
+			$('.ui-tab').not(':first').addClass(settings.hiddenClass);
+			$('.ui-tabmenu li a').first().addClass(settings.activeClass);
+			
+			$this.find('a.ui-tab-label').click(function(event){
+				event.preventDefault();
 				
-				$('.ui-tab').not('.visuallyhidden').addClass('visuallyhidden');
-				var id = $this.attr('href').substring(1);
-				$('#' + id).removeClass('visuallyhidden');
-			}
+				var $this = $(this);
+				if (!$this.hasClass(settings.activeClass)){
+					$('.'+settings.activeClass).removeClass(settings.activeClass);
+					$this.addClass(settings.activeClass);
+					
+					$('.ui-tab').not('.'+settings.hiddenClass).addClass(settings.hiddenClass);
+					var id = $this.attr('href').substring(1);
+					$('#'+id).removeClass(settings.hiddenClass);
+				}
+			});
 		});
+	}
+	
+	$(function(){
+		$('.ui-tabmenu').tabmenu();
 	});
 })(jQuery);
