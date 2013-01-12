@@ -6,17 +6,17 @@
 		}, options);
 		
 		return this.each(function(){
-			var $this = $(this);
+			var $container = $(this);
 			
 			$('.ui-tab').not(':first').addClass(settings.hiddenClass);
-			$('.ui-tabmenu li a').first().addClass(settings.activeClass);
+			$container.find('a.ui-tab-label').first().addClass(settings.activeClass);
 			
-			$this.find('a.ui-tab-label').click(function(event){
+			$container.find('a.ui-tab-label').click(function(event){
 				event.preventDefault();
 				
 				var $this = $(this);
 				if (!$this.hasClass(settings.activeClass)){
-					$('.'+settings.activeClass).removeClass(settings.activeClass);
+					$container.find('a.'+settings.activeClass).removeClass(settings.activeClass);
 					$this.addClass(settings.activeClass);
 					
 					$('.ui-tab').not('.'+settings.hiddenClass).addClass(settings.hiddenClass);
