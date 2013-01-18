@@ -8,41 +8,45 @@
 	
 	<meta name="viewport" content="width=device-width">
 	
-	<link rel="stylesheet" href="demo.css?v=0">
 	<style>
-	.active{
-		color:red;
-	}
-	.hidden{
-		display: none;
-	}
+		.active{
+			color:red;
+		}
+		.hidden{
+			display: none;
+		}
 	</style>
 </head>
 <body>
-	<div>
-	    <nav class="ui-tabmenu">
+	<div class="ux-tabmenu">
+	    <nav>
 	        <ul>
 	            <li>
-	                <a href="#tab1" class="ui-tab-label">
+	                <a href="#tab1" class="ux-tab-label">
 	                    tab 1
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#tab2" class="ui-tab-label">
+	                <a href="#tab2" class="ux-tab-label">
 	                    tab 2
 	                </a>
 	            </li>
 	        </ul>
 	    </nav>
-	    <div id="tab1" class="ui-tab">
+	    <div id="tab1" class="ux-tab">
 	        Content of first tab
 	    </div>
-	    <div id="tab2" class="ui-tab">
+	    <div id="tab2" class="ux-tab">
 	        Content of second tab
 	    </div>
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="tabmenu.js"></script>
+	<script>
+	$(function(){
+		$('.ux-tabmenu').tabmenu();
+	});
+	</script>
 </body>
 </html>
