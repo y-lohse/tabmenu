@@ -52,5 +52,21 @@ tabmenu doesn't directly hide/show anything, it just add and removes classes.
 Tab that should be hidden get the class **hidden**, and the a tag that corresponds to the 
 currently displayed tab gets an **active** class.
 
+You have the abilty to change those class names at initialization :
+
+```javascript
+$('.ux-tabmenu').tabmenu({hiddenClass: 'my-hidden-class', activeClass: 'my-active-class'});
+```
+
 It's up to you to manage how the tabs should look like, how exactly you want to hide the tabs, 
-etc.
+etc. It may for example make sense to only visually hide tabs, but keep them accesible for 
+screen readers. But things can be as easy as this : 
+
+```css
+.active{
+	color: #cc0000;
+}
+.hidden{
+	display: none;
+}
+```
